@@ -34,11 +34,13 @@ def start(config):
     @client.on(events.NewMessage(chats=input_channels_entities))
     async def handler(event):
         for output_channel in output_channel_entities:
-            print(event)
             #if event.media is None:
             if "NIFTYOPTIONS0" in event.text:
                 event.text = event.text.replace('NIFTYOPTIONS0','highrollertraders')
                 print(event.text)
+            else:
+                print(event.text)
+                print("**************************************************")
         await client.send_message(output_channel, event.message)
 
     client.run_until_disconnected()
